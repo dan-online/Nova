@@ -4,7 +4,7 @@ module.exports.internal = function(error, fatal) {
   if (fatal) return process.exit(1);
 };
 
-module.exports.runtime = function(err, line, fatal) {
+module.exports.runtime = function(err, line, fatal, lineNumber) {
   console.error(line.full);
   let x = 0;
   let spaces = "";
@@ -18,7 +18,9 @@ module.exports.runtime = function(err, line, fatal) {
   }
   console.log(spaces);
   module.exports.internal(
-    `${err.name}: ${err.message}\n         at ${line.file}${err.stack
+    `${err.name}: ${err.message}\n         at ${
+      line.file
+    }:${lineNumber}:${line.index + 1}${err.stack
       .split("Error: " + err.message)[1]
       .split("    ")
       .join("         ")}`

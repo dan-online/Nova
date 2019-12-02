@@ -9,19 +9,21 @@ module.exports = function(fileData, file, cb) {
   var parsedData = "";
   const cleanData = clean(fileData);
   const lines = cleanData.split(/\r?\n/);
-  lines.forEach(line => {
+  lines.forEach((line, index) => {
+    index++;
     if (line == "") return;
     if (!line.endsWith(";"))
       return error.runtime(
-        new Error("Unexpected end of line"),
+        new Error("Unexpected end of line, semi-colon expected"),
         { full: line, index: line.length, file },
-        true
+        true,
+        index
       );
     let ogLine = line;
     line = line.slice(0, -1);
     let keyword = keywords[line.split(" ")[0]];
     if (keyword) {
-      keyword(line.split(";")[0], file, ogLine);
+      keyword(line.split(";")[0], file, ogLine, index);
     }
   });
   //   cleanData.split(";\n").forEach(line => {
