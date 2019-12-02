@@ -1,22 +1,31 @@
 var variables = [];
 const { error } = require("../../log/all");
 module.exports.run = function(line, file, ogLine, lineNumber) {
+  const keywords = require("../keywords");
   const key = line
     .split("set")
     .join("")
     .split("as")[0]
     .split(" ")[1];
   const value = line.split("as ")[1];
-  if (!key || key == "" || !value)
+  if (!key || key == "" || !value || keywords[key])
     return error.runtime(
-      new Error("Unexpected end of variable declaration"),
+      new Error(
+        "Unexpected " +
+          (!keywords[key] ? "end of" : "keyword in") +
+          " variable declaration"
+      ),
       {
         full: ogLine,
-        index: !key ? ogLine.indexOf("set") + 3 : ogLine.indexOf("as") + 3,
-        file
+        index: !keywords[key]
+          ? !key
+            ? ogLine.indexOf("set") + 3
+            : ogLine.indexOf("as") + 3
+          : ogLine.indexOf(key),
+        file,
+        place: lineNumber
       },
-      true,
-      lineNumber
+      true
     );
   try {
     variables.forEach(x => {
@@ -26,7 +35,11 @@ module.exports.run = function(line, file, ogLine, lineNumber) {
     variables.push({ key, value: evaled });
   } catch (err) {
     console.log(err);
-    error.runtime(err, { full: ogLine, index: 0, file }, true, lineNumber);
+    error.runtime(
+      err,
+      { full: ogLine, index: 0, file, place: lineNumber },
+      true
+    );
   }
 };
 module.exports.output = variables;

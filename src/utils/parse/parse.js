@@ -15,15 +15,21 @@ module.exports = function(fileData, file, cb) {
     if (!line.endsWith(";"))
       return error.runtime(
         new Error("Unexpected end of line, semi-colon expected"),
-        { full: line, index: line.length, file },
-        true,
-        index
+        { full: line, index: line.length, file, place: index },
+        true
       );
     let ogLine = line;
     line = line.slice(0, -1);
     let keyword = keywords[line.split(" ")[0]];
     if (keyword) {
       keyword(line.split(";")[0], file, ogLine, index);
+    } else {
+      error.runtime(new Error("Unexpected line, no definitions found"), {
+        full: ogLine,
+        index: 0,
+        file,
+        place: index
+      });
     }
   });
   //   cleanData.split(";\n").forEach(line => {

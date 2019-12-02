@@ -8,10 +8,10 @@ module.exports.run = function(line, file, ogLine, lineNumber) {
       {
         full: ogLine,
         file,
-        index: 3
+        index: 3,
+        place: lineNumber
       },
-      true,
-      lineNumber
+      true
     );
   let getVar = variables.find(v => v.key == getValue);
   if (getVar) {
