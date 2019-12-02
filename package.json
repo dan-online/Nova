@@ -1,0 +1,24 @@
+{
+  "name": "nova-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/nova.js",
+  "scripts": {
+    "test": "mocha src/tests",
+    "package": "pkg ./src/nova.js --out-path lib --targets linux,macos,win && echo \"Successfully compiled\""
+  },
+  "pkg": {
+    "scripts": "src/**/*.js",
+    "assets": "build/**/*"
+  },
+  "author": "DanCodes <dan@dancodes.online>",
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "^6.2.2",
+    "pkg": "^4.4.0"
+  },
+  "dependencies": {
+    "debug": "^4.1.1",
+    "file-system": "^2.2.2"
+  }
+}
