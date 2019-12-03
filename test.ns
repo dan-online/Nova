@@ -1,1 +1,4 @@
-if true log "true!" else log "false!";
+set hi as true;
+
+log hi;
+log 1^2;

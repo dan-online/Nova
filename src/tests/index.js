@@ -24,4 +24,15 @@ describe("Nova tests", () => {
       }
     });
   });
+  it("If", cb => {
+    exec("node ./src/nova.js ./src/tests/scripts/if.ns", function(err, out) {
+      if (err) return cb(err);
+      out = out.split("\n")[0];
+      if (out != "true") {
+        cb(new Error("Incorrect output: " + out));
+      } else {
+        cb();
+      }
+    });
+  });
 });
