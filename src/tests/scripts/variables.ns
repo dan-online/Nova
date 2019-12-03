@@ -1,0 +1,11 @@
+set number as 1;
+set string as "hi";
+set add as 1 + 1;
+set divide as 4/2;
+set minus as 10 - 2;
+
+log number;
+log string;
+log add;
+log divide;
+log minus;

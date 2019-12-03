@@ -1,1 +1,1 @@
-log "hi";
+if true log "true!" else log "false!";

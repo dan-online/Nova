@@ -1,0 +1,7 @@
+log "string";
+log 1;
+log 10/2;
+log 20-10;
+log "hiya, " + "you";
+set variable as "hiya";
+log variable;
