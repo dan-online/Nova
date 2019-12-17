@@ -1,4 +1,2 @@
-set hi as true;
-
-log hi;
-log 1^2;
+set hi as 1;
+s;

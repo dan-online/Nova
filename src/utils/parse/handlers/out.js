@@ -26,7 +26,7 @@ module.exports.run = function(line, file, ogLine, lineNumber) {
   } catch (err) {
     error.runtime(
       err,
-      { full: ogLine, file, index: line.indexOf(getValue) },
+      { full: ogLine, file, index: line.indexOf(getValue), place: lineNumber },
       true,
       lineNumber
     );

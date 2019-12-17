@@ -24,7 +24,7 @@ module.exports = function(fileData, file, cb) {
     if (keyword) {
       keyword(line.split(";")[0], file, ogLine, index);
     } else {
-      error.runtime(new Error("Unexpected line, no definitions found"), {
+      error.runtime(new Error("Unexpected token, no definitions found"), {
         full: ogLine,
         index: 0,
         file,
