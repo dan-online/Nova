@@ -1,4 +1,4 @@
-set hi as 2;
+set hi as 1;
 log hi + 2 + " will be 3";
 log 12 / 6 + " will be 2";
 log NaN + 1 + " will be NaN";
