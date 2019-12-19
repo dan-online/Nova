@@ -1,0 +1,30 @@
+{
+  "name": "nova",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": ">=0.9.0-pre.1"
+  },
+  "publisher": "me",
+  "contributes": {
+    "languages": [
+      {
+        "id": "nova",
+        "aliases": [
+          "Nova",
+          "NovaScript"
+        ],
+        "extensions": [
+          ".ns",
+          ".*.ns"
+        ]
+      }
+    ],
+    "grammars": [
+      {
+        "language": "nova",
+        "scopeName": "source.ns",
+        "path": "./syntaxes/nova.tmLanguage"
+      }
+    ]
+  }
+}

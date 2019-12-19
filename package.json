@@ -17,6 +17,28 @@
     "mocha": "^6.2.2",
     "pkg": "^4.4.0"
   },
+  "contributes": {
+    "languages": [
+      {
+        "id": "nova",
+        "aliases": [
+          "Nova",
+          "nova"
+        ],
+        "extensions": [
+          ".ns"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "nova",
+        "scopeName": "source.ns",
+        "path": "./syntaxes/nova.tmLanguage.json"
+      }
+    ]
+  },
   "dependencies": {
     "debug": "^4.1.1",
     "file-system": "^2.2.2"
