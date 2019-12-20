@@ -1,7 +1,4 @@
-set hi as 1;
-log hi + 2 + " will be 3";
-log 12 / 6 + " will be 2";
-log NaN + 1 + " will be NaN";
-if 1 == hi then log "hi" else log "uh oh";
-log args;
-log "options: " + args.filter(arg => arg.startsWith("--"));
+set l as 0;
+log l;
+while l < 3 then {set l as l + 1; log l; };
+log "hi";

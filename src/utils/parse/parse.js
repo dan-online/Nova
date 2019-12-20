@@ -11,7 +11,7 @@ module.exports = function(fileData, file, cb) {
   const lines = cleanData.split(/\r?\n/);
   lines.forEach((line, index) => {
     index++;
-    if (line == "") return;
+    if (line == "" || line == " ") return;
     if (!line.endsWith(";"))
       return error.runtime(
         new Error("Unexpected end of line, semi-colon expected"),
@@ -20,9 +20,12 @@ module.exports = function(fileData, file, cb) {
       );
     let ogLine = line;
     line = line.slice(0, -1);
+    if (line.startsWith(" ")) {
+      line = line.slice(1);
+    }
     let keyword = keywords[line.split(" ")[0]];
     if (keyword) {
-      keyword(line.split(";")[0], file, ogLine, index);
+      keyword(line, file, ogLine, index);
     } else {
       error.runtime(new Error("Unexpected token, no definitions found"), {
         full: ogLine,

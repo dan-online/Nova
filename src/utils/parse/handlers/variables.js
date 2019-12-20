@@ -1,5 +1,6 @@
 var variables = [
-  { key: "args", value: process.argv.slice(process.argv.indexOf("./test.ns")) }
+  { key: "args", value: process.argv.slice(process.argv.indexOf("./test.ns")) },
+  { key: "platform", value: process.platform }
 ];
 const { error } = require("../../log/all");
 module.exports.run = function(line, file, ogLine, lineNumber) {
@@ -34,6 +35,9 @@ module.exports.run = function(line, file, ogLine, lineNumber) {
       global[x.key] = x.value;
     });
     let evaled = eval(value);
+    if (variables.find(v => v.key == key)) {
+      variables.splice(variables.indexOf(variables.find(v => v.key == key)), 1);
+    }
     variables.push({ key, value: evaled });
   } catch (err) {
     console.log(err);
