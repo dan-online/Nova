@@ -9,13 +9,23 @@
   },
   "pkg": {
     "scripts": "src/**/*.js",
-    "assets": "build/**/*"
+    "assets": "build/**/*",
+    "release": "release-it"
   },
   "author": "DanCodes <dan@dancodes.online>",
   "license": "MIT",
   "devDependencies": {
     "mocha": "^6.2.2",
-    "pkg": "^4.4.0"
+    "pkg": "^4.4.0",
+    "release-it": "^12.4.3"
+  },
+  "release-it": {
+    "git": {
+      "tagName": "v${version}"
+    },
+    "github": {
+      "release": true
+    }
   },
   "contributes": {
     "languages": [
