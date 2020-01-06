@@ -18,25 +18,23 @@
 </p>
 </p>
 
-
-
 > Computer science simplified for learning purposes.
 
 ## Install
 
-```sh
+```bash
 npm install
 ```
 
 ## Usage
 
-```sh
+```bash
 nova test.ns
 ```
 
 ## Run tests
 
-```sh
+```bash
 npm test
 ```
 
@@ -67,4 +65,3 @@ This project is [MIT](LICENSE.md) licensed.
 ---
 
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
-
