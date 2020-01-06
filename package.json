@@ -55,6 +55,14 @@
       }
     ]
   },
+  "keywords": [
+    "nova",
+    "programming language",
+    "nova-cli",
+    "cli-nova",
+    "nova files",
+    "novascript"
+  ],
   "dependencies": {
     "debug": "^4.1.1",
     "download-github-release": "^0.3.2",
