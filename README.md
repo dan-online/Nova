@@ -12,9 +12,7 @@
   <a href="package.json" target="_blank">
     <img alt="Version" src="https://img.shields.io/github/package-json/v/dan-online/nova">
   </a>
-  <a href="">
-    <img alt="Codacy" src="https://img.shields.io/librariesio/github/dan-online/nova">
-  </a>
+  <a href="https://www.codacy.com?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=dan-online/Nova&amp;utm_campaign=Badge_Grade"><img src="https://api.codacy.com/project/badge/Grade/ec863653fbde4d38889e471a8508fb72"/></a>
 </p>
 
 > Computer science simplified for learning purposes.
