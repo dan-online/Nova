@@ -1,5 +1,5 @@
 {
-  "name": "nova",
+  "name": "nova-cli",
   "version": "1.0.1",
   "description": "",
   "main": "src/nova.js",
@@ -11,8 +11,7 @@
     "upload": "github-release upload --owner dan-online --repo Nova --tag `node -e \"console.log('v' + require('./package.json').version)\"` --name `node -e \"console.log('v' + require('./package.json').version)\"` ./lib/nova-linux ./lib/nova-macos ./lib/nova-win.exe"
   },
   "pkg": {
-    "scripts": "src/**/*.js",
-    "assets": "build/**/*"
+    "scripts": "src/**/*.js"
   },
   "author": "DanCodes <dan@dancodes.online>",
   "license": "MIT",
