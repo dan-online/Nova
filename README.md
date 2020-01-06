@@ -1,5 +1,5 @@
 <p align="center">
-<img width="300" src="build/round.png">
+<img width="300" src="https://github.com/dan-online/Nova/raw/master/build/round.png">
 <h1 align="center">Welcome to Nova 👋 (Beta)</h1>
 <p align="center">
 <a href="">
