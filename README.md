@@ -12,6 +12,9 @@
   <a href="package.json" target="_blank">
     <img alt="Version" src="https://img.shields.io/github/package-json/v/dan-online/nova">
   </a>
+  <a href="">
+    <img alt="Codacy" src="https://img.shields.io/librariesio/github/dan-online/nova">
+  </a>
 </p>
 
 > Computer science simplified for learning purposes.
