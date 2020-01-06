@@ -1,67 +1,70 @@
-<center><img src="build/logo.png">
-    <h1 align="center">Welcome to Nova 👋</h1>
-    <p>
-    <a href="">
-        <img alt="Version" src="https://img.shields.io/github/languages/top/dan-online/nova">
-    </a>
-    <a href="">
-        <img alt="Code Size" src="https://img.shields.io/github/languages/code-size/dan-online/nova">
-    </a>
-    <a href="LICENSE.md" target="_blank">
-        <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
-    </a>
-    <a href="package.json" target="_blank">
-        <img alt="Version" src="https://img.shields.io/github/package-json/v/dan-online/nova">
-    </a>
-    <a href="https://www.codacy.com?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=dan-online/Nova&amp;utm_campaign=Badge_Grade"><img src="https://api.codacy.com/project/badge/Grade/ec863653fbde4d38889e471a8508fb72"/></a>
-    </p>
+<p align="center">
+<img src="build/logo.png">
+<h1 align="center">Welcome to Nova 👋</h1>
+<p>
+<a href="">
+    <img alt="Version" src="https://img.shields.io/github/languages/top/dan-online/nova">
+</a>
+<a href="">
+    <img alt="Code Size" src="https://img.shields.io/github/languages/code-size/dan-online/nova">
+</a>
+<a href="LICENSE.md" target="_blank">
+    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
+</a>
+<a href="package.json" target="_blank">
+    <img alt="Version" src="https://img.shields.io/github/package-json/v/dan-online/nova">
+</a>
+<a href="https://www.codacy.com?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=dan-online/Nova&amp;utm_campaign=Badge_Grade"><img src="https://api.codacy.com/project/badge/Grade/ec863653fbde4d38889e471a8508fb72"/></a>
+</p>
+</p>
 
-    > Computer science simplified for learning purposes.
 
-    ## Install
 
-    ```sh
-    npm install
-    ```
+> Computer science simplified for learning purposes.
 
-    ## Usage
+## Install
 
-    ```sh
-    nova test.ns
-    ```
+```sh
+npm install
+```
 
-    ## Run tests
+## Usage
 
-    ```sh
-    npm test
-    ```
+```sh
+nova test.ns
+```
 
-    ## Author
+## Run tests
 
-    👤 **DanCodes <dan@dancodes.online>**
+```sh
+npm test
+```
 
-    - Website: https://dancodes.online
-    - Github: [@dan-online](https://github.com/dan-online)
+## Author
 
-    ## 🤝 Contributing
+👤 **DanCodes <dan@dancodes.online>**
 
-    Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/dan-online/Nova/issues).
+- Website: https://dancodes.online
+- Github: [@dan-online](https://github.com/dan-online)
 
-    ## Show your support
+## 🤝 Contributing
 
-    Give a ⭐️ if this project helped you!
+Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/dan-online/Nova/issues).
 
-    <a href="https://www.patreon.com/mayorchano">
-    <img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160">
-    </a>
+## Show your support
 
-    ## 📝 License
+Give a ⭐️ if this project helped you!
 
-    Copyright © 2020 [DanCodes <dan@dancodes.online>](https://github.com/dan-online).<br />
-    This project is [MIT](LICENSE.md) licensed.
+<a href="https://www.patreon.com/mayorchano">
+<img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160">
+</a>
 
-    ---
+## 📝 License
 
-    _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
+Copyright © 2020 [DanCodes <dan@dancodes.online>](https://github.com/dan-online).<br />
+This project is [MIT](LICENSE.md) licensed.
 
-</center>
+---
+
+_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
+
