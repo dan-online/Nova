@@ -9,32 +9,46 @@ module.exports = function(fileData, file, cb) {
   var parsedData = "";
   const cleanData = clean(fileData);
   const lines = cleanData.split(/\r?\n/);
-  lines.forEach((line, index) => {
+  let index = 0;
+  let cntr = 0;
+  (function tick() {
+    let line = lines[index];
+    if (!line) return;
     index++;
-    if (line == "" || line == " ") return;
-    if (!line.endsWith(";"))
-      return error.runtime(
-        new Error("Unexpected end of line, semi-colon expected"),
-        { full: line, index: line.length, file, place: index },
-        true
-      );
-    let ogLine = line;
-    line = line.slice(0, -1);
-    if (line.startsWith(" ")) {
-      line = line.slice(1);
+    if (line != "" && line != " ") {
+      if (!line.endsWith(";")) {
+        debug()("broken line:", line);
+        return error.runtime(
+          new Error("Unexpected end of line, semi-colon expected"),
+          { full: line, index: line.length, file, place: index },
+          true
+        );
+      }
+      let ogLine = line;
+      line = line.slice(0, -1);
+      if (line.startsWith(" ")) {
+        line = line.slice(1);
+      }
+      let keyword = keywords[line.split(" ")[0]];
+      if (keyword) {
+        keyword(line, file, ogLine, index);
+      } else {
+        debug()("no def line:", line.split(" ")[0]);
+        error.runtime(new Error("Unexpected token, no definitions found"), {
+          full: ogLine,
+          index: 0,
+          file,
+          place: index
+        });
+      }
     }
-    let keyword = keywords[line.split(" ")[0]];
-    if (keyword) {
-      keyword(line, file, ogLine, index);
+    if (++cntr > 1e3) {
+      setImmediate(tick);
+      cntr = 0;
     } else {
-      error.runtime(new Error("Unexpected token, no definitions found"), {
-        full: ogLine,
-        index: 0,
-        file,
-        place: index
-      });
+      process.nextTick(tick);
     }
-  });
+  })();
   //   cleanData.split(";\n").forEach(line => {
   //     let words = line.split(/('.*?'|".*?"|\S+)/g);
   //     words = words.filter(x => x != " " && x != "");
@@ -72,6 +86,5 @@ module.exports = function(fileData, file, cb) {
   //     });
   //     parsedData += "\n";
   //   });
-  debug("PARSE", parsedData);
   cb(parsedData);
 };

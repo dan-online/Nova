@@ -1,6 +1,7 @@
 const variables = require("./variables").output;
-const { error } = require("../../log/all");
+const { error, debug } = require("../../log/all");
 module.exports.run = function(line, file, ogLine, lineNumber) {
+  debug()("run: loop");
   const getValue = line.split("while ")[1].split(" then")[0];
   const execValue = line
     .split("then ")[1]

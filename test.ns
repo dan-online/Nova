@@ -1,4 +1,2 @@
-set l as 0;
-log l;
-while l < 3 then {set l as l + 1; log l; };
-log "hi";
+set chalk as require("chalk");
+log chalk.red("hi");

@@ -5,6 +5,7 @@
   "main": "src/nova.js",
   "scripts": {
     "test": "mocha src/tests",
+    "postinstall": "node src/install.js",
     "package": "pkg ./src/nova.js --out-path lib --targets linux,macos,win --public && echo \"Successfully compiled\"",
     "release": "npm run package; release-it; npm run upload",
     "upload": "github-release upload --owner dan-online --repo Nova --tag `node -e \"console.log('v' + require('./package.json').version)\"` --name `node -e \"console.log('v' + require('./package.json').version)\"` ./lib/nova-linux ./lib/nova-macos ./lib/nova-win.exe"
@@ -20,6 +21,9 @@
     "mocha": "^6.2.2",
     "pkg": "^4.4.0",
     "release-it": "^12.4.3"
+  },
+  "bin": {
+    "nova": "./lib/nova"
   },
   "release-it": {
     "git": {

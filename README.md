@@ -26,7 +26,7 @@
 ## Install
 
 ```bash
-npm install
+brew tap dan-online/nova https://github.com/dan-online/nova
 ```
 
 ## Usage

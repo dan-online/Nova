@@ -1,6 +1,7 @@
 const variables = require("./variables").output;
-const { error } = require("../../log/all");
+const { error, debug } = require("../../log/all");
 module.exports.run = function(line, file, ogLine, lineNumber) {
+  debug()("run: output");
   const getValue = line.split("log ")[1];
   if (!getValue)
     return error.runtime(

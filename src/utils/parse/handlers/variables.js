@@ -2,8 +2,9 @@ var variables = [
   { key: "args", value: process.argv.slice(process.argv.indexOf("./test.ns")) },
   { key: "platform", value: process.platform }
 ];
-const { error } = require("../../log/all");
+const { error, debug } = require("../../log/all");
 module.exports.run = function(line, file, ogLine, lineNumber) {
+  debug()("run: var declaration");
   const keywords = require("../keywords");
   const key = line
     .split("set")
