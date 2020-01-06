@@ -1,10 +1,16 @@
 <h1 align="center">Welcome to nova 👋</h1>
 <p>
-  <a href="https://www.npmjs.com/package/nova" target="_blank">
-    <img alt="Version" src="https://img.shields.io/npm/v/nova.svg">
+  <a href="">
+    <img alt="Version" src="https://img.shields.io/github/languages/top/dan-online/nova">
+  </a>
+  <a href="">
+    <img alt="Code Size" src="https://img.shields.io/github/languages/code-size/dan-online/nova">
   </a>
   <a href="LICENSE.md" target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
+  </a>
+  <a href="package.json" target="_blank">
+    <img alt="Version" src="https://img.shields.io/github/package-json/v/dan-online/nova>
   </a>
 </p>
 
