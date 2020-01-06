@@ -10,7 +10,7 @@
     <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
   </a>
   <a href="package.json" target="_blank">
-    <img alt="Version" src="https://img.shields.io/github/package-json/v/dan-online/nova>
+    <img alt="Version" src="https://img.shields.io/github/package-json/v/dan-online/nova">
   </a>
 </p>
 
