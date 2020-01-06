@@ -1,7 +1,7 @@
 <p align="center">
 <img src="build/logo.png">
 <h1 align="center">Welcome to Nova 👋</h1>
-<p>
+<p align="center">
 <a href="">
     <img alt="Version" src="https://img.shields.io/github/languages/top/dan-online/nova">
 </a>
