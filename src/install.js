@@ -1,6 +1,7 @@
 const fs = require("file-system");
 const path = require("path");
 process.platform = "";
+fs.unlinkSync(path.resolve(__dirname, "..", "lib", "nova"));
 switch (process.platform) {
   case "linux":
     fs.writeFileSync(
