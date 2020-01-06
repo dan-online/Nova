@@ -1,2 +1,5 @@
 .DS_Store
 node_modules
+lib/nova-macos
+lib/nova-win
+lib/nova-linux

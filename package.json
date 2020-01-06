@@ -57,6 +57,7 @@
   },
   "dependencies": {
     "debug": "^4.1.1",
+    "download-github-release": "^0.3.2",
     "file-system": "^2.2.2"
   }
 }
