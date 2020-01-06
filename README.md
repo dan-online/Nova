@@ -3,6 +3,9 @@
 <h1 align="center">Welcome to Nova 👋 (Beta)</h1>
 <p align="center">
 <a href="">
+    <img alt="GitHub Releases" src="https://img.shields.io/github/downloads/dan-online/nova/latest/total">
+</a>
+<a href="">
     <img alt="Version" src="https://img.shields.io/github/languages/top/dan-online/nova">
 </a>
 <a href="">
