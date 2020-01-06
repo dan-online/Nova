@@ -5,12 +5,12 @@
   "main": "src/nova.js",
   "scripts": {
     "test": "mocha src/tests",
-    "package": "pkg ./src/nova.js --out-path lib --targets linux,macos,win && echo \"Successfully compiled\""
+    "package": "pkg ./src/nova.js --out-path lib --targets linux,macos,win --public && echo \"Successfully compiled\"",
+    "release": "npm run package; cd lib; release-it"
   },
   "pkg": {
     "scripts": "src/**/*.js",
-    "assets": "build/**/*",
-    "release": "release-it"
+    "assets": "build/**/*"
   },
   "author": "DanCodes <dan@dancodes.online>",
   "license": "MIT",
