@@ -1,4 +1,5 @@
-<h1 align="center">Welcome to nova 👋</h1>
+<center><img src="build/logo.png">
+<h1 align="center">Welcome to Nova 👋</h1>
 <p>
   <a href="">
     <img alt="Version" src="https://img.shields.io/github/languages/top/dan-online/nova">
@@ -62,3 +63,5 @@ This project is [MIT](LICENSE.md) licensed.
 ---
 
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
+
+</center>
