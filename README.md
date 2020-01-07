@@ -54,12 +54,16 @@ nova test.ns
 set variable as "hello"; // "Strings"
 log variable; // Logging
 
-set two as 1 + 2; // Numbers
+set two as 1 + 1; // Numbers
 
-set chalk as include("chalk"); // Npm integration
+set chalk as require("chalk"); // Npm integration
 log chalk.red("Red text"); // Logs red
 
 log 12 / 2 % 2 + 1; // Logs 3
+
+if two == 2 then log "hello";
+
+if two != 2 then log "won't be logged" else log "hello";
 
 ```
 

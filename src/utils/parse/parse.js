@@ -8,7 +8,7 @@ const { debug, error } = require("../log/all");
 module.exports = function(fileData, file, cb) {
   var parsedData = "";
   const cleanData = clean(fileData);
-  const lines = cleanData.split(/\r?\n/);
+  const lines = cleanData.split(/\r?\n/).filter(line => line != "");
 
   let index = 0;
   let cntr = 0;
