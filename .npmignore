@@ -1,0 +1,5 @@
+node_modules
+lib/nova-macos
+lib/nova-win.exe
+lib/nova-linux
+.DS_Store
