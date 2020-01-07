@@ -1,2 +1,6 @@
-set chalk as require("chalk");
-log chalk.red("hi");
+set variable as "hello"; // "Strings"
+log variable; // Logging
+set two as 1 + 2; // Numbers
+set chalk as require("chalk"); // Npm integration
+log chalk.red("Red text");
+log 12 / 2 % 2 + 1;

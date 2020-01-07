@@ -9,14 +9,22 @@ module.exports = function(fileData, file, cb) {
   var parsedData = "";
   const cleanData = clean(fileData);
   const lines = cleanData.split(/\r?\n/);
+
   let index = 0;
   let cntr = 0;
   (function tick() {
     let line = lines[index];
     if (!line) return;
+    line = line.split(/\/\/.*|\/\*[^]*\*\//g).join("");
     index++;
     if (line != "" && line != " ") {
-      if (!line.endsWith(";")) {
+      if (
+        line.split(";")[1] &&
+        line
+          .split(";")[1]
+          .split(" ")
+          .join("").length > 0
+      ) {
         debug()("broken line:", line);
         return error.runtime(
           new Error("Unexpected end of line, semi-colon expected"),

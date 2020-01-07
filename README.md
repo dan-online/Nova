@@ -32,6 +32,8 @@
 
 Nova is an opensource programming language built on node. The purpose of Nova is to make a pure psuedo-code language that is the perfect introduction into computer science. Completely built on [node](https://github.com/node/nodejs) v12, Nova is optimized for running on mac, linux and windows!
 
+To get started go to [usage](#usage) and start your Nova journey today.
+
 # Usage
 
 ## Install
@@ -46,10 +48,19 @@ npm i -g cli-nova
 nova test.ns
 ```
 
-## Run tests
+## Examples
 
-```bash
-npm test
+```javascript
+set variable as "hello"; // "Strings"
+log variable; // Logging
+
+set two as 1 + 2; // Numbers
+
+set chalk as include("chalk"); // Npm integration
+log chalk.red("Red text"); // Logs red
+
+log 12 / 2 % 2 + 1; // Logs 3
+
 ```
 
 ## Author
