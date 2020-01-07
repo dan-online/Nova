@@ -3,21 +3,21 @@
 <h1 align="center">Welcome to Nova 👋 (Beta)</h1>
 <p align="center">
 <a href="">
-    <img alt="GitHub Releases" src="https://img.shields.io/github/downloads/dan-online/nova/latest/total">
+    <img alt="Nova NPM downloads" src="https://img.shields.io/npm/dt/nova">
 </a>
 <a href="">
-    <img alt="Version" src="https://img.shields.io/github/languages/top/dan-online/nova">
+    <img alt="Nova Languages" src="https://img.shields.io/github/languages/top/dan-online/nova">
 </a>
 <a href="">
-    <img alt="Code Size" src="https://img.shields.io/github/languages/code-size/dan-online/nova">
+    <img alt="Nova Code Size" src="https://img.shields.io/github/languages/code-size/dan-online/nova">
 </a>
 <a href="LICENSE.md" target="_blank">
-    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
+    <img alt="Nova License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
 </a>
 <a href="package.json" target="_blank">
-    <img alt="Version" src="https://img.shields.io/github/package-json/v/dan-online/nova">
+    <img alt="Nova Version" src="https://img.shields.io/github/package-json/v/dan-online/nova">
 </a>
-<a href="https://www.codacy.com?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=dan-online/Nova&amp;utm_campaign=Badge_Grade"><img src="https://api.codacy.com/project/badge/Grade/ec863653fbde4d38889e471a8508fb72"/></a>
+<a href="https://www.codacy.com?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=dan-online/Nova&amp;utm_campaign=Badge_Grade"><img alt="Nova Codacy" src="https://api.codacy.com/project/badge/Grade/ec863653fbde4d38889e471a8508fb72"/></a>
 </p>
 </p>
 
