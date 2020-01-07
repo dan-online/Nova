@@ -30,7 +30,7 @@
       "tagName": "v${version}"
     },
     "github": {
-      "release": true,
+      "release": "prerelease",
       "push": true,
       "commit": true,
       "tag": true

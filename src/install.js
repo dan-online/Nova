@@ -14,7 +14,7 @@ const platform =
     : "win";
 
 function filterRelease(release) {
-  if (release.tag_name == "v" + require("../package.json").version) return true;
+  return release.prerelease === false;
 }
 
 function filterAsset(asset) {
