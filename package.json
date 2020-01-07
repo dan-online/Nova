@@ -7,7 +7,7 @@
     "test": "mocha src/tests",
     "preinstall": "node src/install.js",
     "package": "pkg ./src/nova.js --out-path lib --targets linux,macos,win --public && echo \"Successfully compiled\"",
-    "release": "npm run package; release-it; npm run upload;",
+    "release": "npm run package; release-it; npm run upload; npm publish",
     "upload": "github-release upload --owner dan-online --repo Nova --tag `node -e \"console.log('v' + require('./package.json').version)\"` --name `node -e \"console.log('v' + require('./package.json').version)\"` ./lib/nova-linux ./lib/nova-macos ./lib/nova-win.exe"
   },
   "pkg": {
@@ -30,7 +30,13 @@
       "tagName": "v${version}"
     },
     "github": {
-      "release": true
+      "release": true,
+      "push": true,
+      "commit": true,
+      "tag": true
+    },
+    "npm": {
+      "publish": false
     }
   },
   "contributes": {
