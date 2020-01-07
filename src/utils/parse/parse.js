@@ -19,9 +19,9 @@ module.exports = function(fileData, file, cb) {
     index++;
     if (line != "" && line != " ") {
       if (
-        line.split(";")[1] &&
+        line.split(";\n")[1] &&
         line
-          .split(";")[1]
+          .split(";\n")[1]
           .split(" ")
           .join("").length > 0
       ) {
