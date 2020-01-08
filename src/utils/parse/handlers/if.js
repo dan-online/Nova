@@ -1,5 +1,6 @@
 const variables = require("./variables").output;
 const { error, debug } = require("../../log/all");
+const safeEval = require("safe-eval");
 module.exports.run = function(line, file, ogLine, lineNumber) {
   debug()("run: if statement");
   const getValue = line.split("if ")[1].split(" then")[0];
@@ -15,10 +16,7 @@ module.exports.run = function(line, file, ogLine, lineNumber) {
       true
     );
   try {
-    variables.forEach(x => {
-      global[x.key] = x.value;
-    });
-    let evaled = eval(getValue);
+    let evaled = safeEval(getValue, variables);
     if (evaled) {
       let then = line.split("then ")[1].split("else")[0];
       if (then) {

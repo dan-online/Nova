@@ -3,6 +3,7 @@ var variables = [
   { key: "platform", value: process.platform }
 ];
 const { error, debug } = require("../../log/all");
+const safeEval = require("safe-eval");
 module.exports.run = function(line, file, ogLine, lineNumber) {
   debug()("run: var declaration");
   const keywords = require("../keywords");
@@ -32,10 +33,7 @@ module.exports.run = function(line, file, ogLine, lineNumber) {
       true
     );
   try {
-    variables.forEach(x => {
-      global[x.key] = x.value;
-    });
-    let evaled = eval(value);
+    let evaled = safeEval(getValue, variables);
     if (variables.find(v => v.key == key)) {
       variables.splice(variables.indexOf(variables.find(v => v.key == key)), 1);
     }

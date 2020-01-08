@@ -1,5 +1,6 @@
 const variables = require("./variables").output;
 const { error, debug } = require("../../log/all");
+const safeEval = require("safe-eval");
 module.exports.run = function(line, file, ogLine, lineNumber) {
   debug()("run: loop");
   const getValue = line.split("while ")[1].split(" then")[0];
@@ -21,10 +22,7 @@ module.exports.run = function(line, file, ogLine, lineNumber) {
 
   try {
     (function loop() {
-      variables.forEach(x => {
-        global[x.key] = x.value;
-      });
-      let evaled = eval(getValue);
+      let evaled = safeEval(getValue, variables);
       if (evaled) {
         require("../parse.js")(execValue.split(";").join(";\n"), file, data => {
           loop();

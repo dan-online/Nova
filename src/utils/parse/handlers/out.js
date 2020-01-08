@@ -1,5 +1,6 @@
 const variables = require("./variables").output;
 const { error, debug } = require("../../log/all");
+const safeEval = require("safe-eval");
 module.exports.run = function(line, file, ogLine, lineNumber) {
   debug()("run: output");
   const getValue = line.split("log ")[1];
@@ -19,10 +20,7 @@ module.exports.run = function(line, file, ogLine, lineNumber) {
     return console.log(getVar.value);
   }
   try {
-    variables.forEach(x => {
-      global[x.key] = x.value;
-    });
-    let evaled = eval(getValue);
+    let evaled = safeEval(getValue, variables);
     console.log(evaled);
   } catch (err) {
     error.runtime(
