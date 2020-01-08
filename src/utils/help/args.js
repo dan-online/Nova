@@ -25,6 +25,7 @@ module.exports = function(args, file, cb) {
       opt.conf.aliases.find(alias => args.find(a => a == alias))
     );
     if (!arg) {
+      if (file) return cb();
       return error.internal(
         "Invalid option passed in command line. To learn more try: nova -h"
       );
