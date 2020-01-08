@@ -76,9 +76,6 @@ if two equals 2 then log "two is equal to 2";
 
 if two isnot 2 then log "won't be logged" else log "two is not not equal to 2";
 
-array.forEach(x => {
-    log x;
-})
 ```
 
 ## Author
