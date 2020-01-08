@@ -1,1 +1,1 @@
-log 1 isnot 1;
+log global;

@@ -1,6 +1,8 @@
 var variables = [
   { key: "args", value: process.argv.slice(process.argv.indexOf("./test.ns")) },
-  { key: "platform", value: process.platform }
+  { key: "platform", value: process.platform },
+  { key: "process", value: { pid: process.pid, exit: process.exit } },
+  { key: "global", value: { directory: process.cwd() } }
 ];
 const { error, debug } = require("../../log/all");
 const safeEval = require("safe-eval");
