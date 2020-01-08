@@ -4,7 +4,11 @@ function clean(data) {
 
 const keywords = require("./keywords");
 const { debug, error } = require("../log/all");
-
+const rewords = [
+  { name: "equals", val: "==" },
+  { name: "isnot", val: "!=" }
+];
+const vars = require("./handlers/variables");
 module.exports = function(fileData, file, cb) {
   var parsedData = "";
   const cleanData = clean(fileData);
@@ -37,11 +41,20 @@ module.exports = function(fileData, file, cb) {
       if (line.startsWith(" ")) {
         line = line.slice(1);
       }
-      let keyword = keywords[line.split(" ")[0]];
+      let words = line.split(" ");
+      words.forEach((word, index) => {
+        let reword = rewords.find(re => re.name == word);
+        if (reword) {
+          words[index] = reword.val;
+        }
+      });
+      line = words.join(" ");
+      let firstToken = words[0];
+      let keyword = keywords[firstToken];
       if (keyword) {
         keyword(line, file, ogLine, index);
       } else {
-        debug()("no def line:", line.split(" ")[0]);
+        debug()("no def line:", firstToken);
         error.runtime(new Error("Unexpected token, no definitions found"), {
           full: ogLine,
           index: 0,

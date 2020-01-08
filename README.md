@@ -30,7 +30,7 @@
 
 # About
 
-Nova is an opensource programming language built on node. The purpose of Nova is to make a pure psuedo-code language that is the perfect introduction into computer science. Completely built on [node](https://github.com/node/nodejs) v12, Nova is optimized for running on mac, linux and windows!
+Nova is an opensource programming language built on node. The purpose of Nova is to make a pure psuedo-code language that is the perfect introduction into computer science. Completely built on [node](https://github.com/node/nodejs) v12 and connected to NPM packages, Nova is optimized for running on mac, linux and windows!
 
 To get started go to [usage](#usage) and start your Nova journey today.
 
@@ -42,10 +42,20 @@ To get started go to [usage](#usage) and start your Nova journey today.
 npm i -g cli-nova
 ```
 
-## Run file
+## Run
+
+```bash
+nova [options] [file]
+```
+
+## Example runs
 
 ```bash
 nova test.ns
+```
+
+```bash
+nova --verbose test.ns
 ```
 
 ## Examples
@@ -55,16 +65,20 @@ set variable as "hello"; // "Strings"
 log variable; // Logging
 
 set two as 1 + 1; // Numbers
+set array as [1,2,3,4,5];
 
 set chalk as require("chalk"); // Npm integration
 log chalk.red("Red text"); // Logs red
 
 log 12 / 2 % 2 + 1; // Logs 3
 
-if two == 2 then log "two is equal to 2";
+if two equals 2 then log "two is equal to 2";
 
-if two != 2 then log "won't be logged" else log "two is not not equal to 2";
+if two isnot 2 then log "won't be logged" else log "two is not not equal to 2";
 
+array.forEach(x => {
+    log x;
+})
 ```
 
 ## Author
