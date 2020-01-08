@@ -8,6 +8,7 @@ var variables = [
   { key: "stopTimer", value: clearTimeout },
   { key: "stopInterval", value: clearInterval }
 ];
+variables.push({ key: "global", value: variables });
 const { error, debug } = require("../../log/all");
 const safeEval = require("safe-eval");
 module.exports.run = function(line, file, ogLine, lineNumber) {
