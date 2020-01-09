@@ -1,10 +1,12 @@
 const chalk = require("chalk");
 const width = process.stdout.columns;
-const { error } = require("../../log/all");
+const { error, debug } = require("../../log/all");
 const package = require("../../../../package.json");
+
 module.exports.run = function(cb, args, commands) {
   if (!args) {
     const formatted = commands.map(command => {
+      debug()("formatting: " + command.conf.name);
       let aliases = command.conf.aliases.join(", ");
       let name = command.conf.name;
       let desc = command.conf.desc;
@@ -24,6 +26,7 @@ ${formatted.join("\n")}
     return;
   }
   const arg = args.join(" ");
+  debug()("arg: " + arg);
   const cmd = commands.find(command => args.join(" ") == command.conf.name);
   if (!cmd) return error.internal("No command found for " + arg);
   console.log(`

@@ -22,10 +22,10 @@ module.exports = function(args, file, cb) {
       if (!file) args = ["-h"];
       else return cb();
     }
-    const arg = options.find(opt =>
+    const toRun = options.filter(opt =>
       opt.conf.aliases.find(alias => args.find(a => a == alias))
     );
-    if (!arg) {
+    if (!toRun || toRun.length < 1) {
       if (file) return cb();
       return error.internal(
         "Invalid option passed in command line. To learn more try: nova -h"
@@ -35,6 +35,14 @@ module.exports = function(args, file, cb) {
       a => !options.find(o => o.conf.aliases.find(al => al == a))
     );
     args = args.length < 1 ? null : args;
-    arg.run(cb, args, options);
+    toRun.sort((b, a) => (a.conf.callback ? 1 : 0) - (b.conf.callback ? 1 : 0));
+    let index = -1;
+    (function next() {
+      index++;
+      if (!toRun[index]) return;
+      setImmediate(() => {
+        toRun[index].run(next, args, options);
+      });
+    })();
   })();
 };
