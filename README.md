@@ -61,7 +61,9 @@ nova --verbose test.ns
 
 ## Examples
 
-```javascript
+```swift
+// We recommend setting swift for language highlighting
+
 set variable as "hello"; // "Strings"
 log variable; // Logging
 
