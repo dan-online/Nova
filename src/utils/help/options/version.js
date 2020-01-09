@@ -1,5 +1,5 @@
 const chalk = require("chalk");
-module.exports.run = function(commands, cb) {
+module.exports.run = function() {
   console.log(
     chalk.blue("Nova ") +
       "version: " +
@@ -8,6 +8,7 @@ module.exports.run = function(commands, cb) {
 };
 module.exports.config = {
   name: "version",
-  desc: "enable verbose logging for deeper insight",
-  aliases: ["--version", "-v"]
+  desc: "view the version of Nova",
+  aliases: ["--version", "-v"],
+  usage: "nova --version/-v"
 };

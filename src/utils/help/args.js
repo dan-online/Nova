@@ -4,7 +4,8 @@ const options = [];
 [
   require("./options/help"),
   require("./options/verbose"),
-  require("./options/version")
+  require("./options/version"),
+  require("./options/eval")
 ].forEach(file => {
   options.push({
     run: file.run,
@@ -30,6 +31,10 @@ module.exports = function(args, file, cb) {
         "Invalid option passed in command line. To learn more try: nova -h"
       );
     }
-    arg.run(options, cb);
+    args = args.filter(
+      a => !options.find(o => o.conf.aliases.find(al => al == a))
+    );
+    args = args.length < 1 ? null : args;
+    arg.run(cb, args, options);
   })();
 };
