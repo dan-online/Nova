@@ -82,6 +82,7 @@
     "debug": "^4.1.1",
     "download-github-release": "^0.3.2",
     "file-system": "^2.2.2",
+    "js-spring": "^3.2.3",
     "safe-eval": "^0.4.1"
   }
 }

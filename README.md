@@ -27,6 +27,7 @@
 - [Usage](#usage)
   - [Install](#install)
   - [Run](#run)
+  - [Keywords](#keywords)
 
 # About
 
@@ -67,7 +68,7 @@ log variable; // Logging
 set two as 1 + 1; // Numbers
 set array as [1,2,3,4,5];
 
-set chalk as require("chalk"); // Npm integration
+set chalk as include("chalk"); // Npm integration
 log chalk.red("Red text"); // Logs red
 
 log 12 / 2 % 2 + 1; // Logs 3
@@ -75,6 +76,31 @@ log 12 / 2 % 2 + 1; // Logs 3
 if two equals 2 then log "two is equal to 2";
 
 if two isnot 2 then log "won't be logged" else log "two is not not equal to 2";
+
+```
+
+## Keywords
+
+### Variables
+
+For variables we use two keywords, "set" and "as". All variable values are evaluated on initiation and stored in memory. They can be referenced at any time throughout the code and are global.
+
+```javascript
+set hello as "world1";
+output.log("hello " + hello.slice(0, -1)); // output: hello world
+```
+
+Variables can also be set to npm modules and other files. Modules can be installed using [npm](https://npmjs.org).
+
+```javascript
+set chalk as include("chalk");
+set path as include("path");
+set redText as chalk.red("red text");
+
+output.log(redText);
+
+set package as include(path.resolve("./package.json"));
+output.log("Running v" + package.version);
 
 ```
 

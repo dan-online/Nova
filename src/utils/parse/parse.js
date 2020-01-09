@@ -8,8 +8,9 @@ const rewords = [
   { name: "equals", val: "==" },
   { name: "isnot", val: "!=" }
 ];
-const vars = require("./handlers/variables");
+const safeEval = require("safe-eval");
 module.exports = function(fileData, file, cb) {
+  const vars = require("./handlers/variables").output;
   var parsedData = "";
   const cleanData = clean(fileData);
   const lines = cleanData.split(/\r?\n/).filter(line => line != "");
@@ -21,14 +22,8 @@ module.exports = function(fileData, file, cb) {
     if (!line) return;
     line = line.split(/\/\/.*|\/\*[^]*\*\//g).join("");
     index++;
-    if (line != "" && line != " ") {
-      if (
-        line.split(";\n")[1] &&
-        line
-          .split(";\n")[1]
-          .split(" ")
-          .join("").length > 0
-      ) {
+    if (line != "" && line != " " && line.split(" ").length > 0) {
+      if (!line.endsWith(";")) {
         debug()("broken line:", line);
         return error.runtime(
           new Error("Unexpected end of line, semi-colon expected"),
@@ -55,12 +50,16 @@ module.exports = function(fileData, file, cb) {
         keyword(line, file, ogLine, index);
       } else {
         debug()("no def line:", firstToken);
-        error.runtime(new Error("Unexpected token, no definitions found"), {
-          full: ogLine,
-          index: 0,
-          file,
-          place: index
-        });
+        try {
+          safeEval(line, vars);
+        } catch (err) {
+          error.runtime(err, {
+            full: ogLine,
+            index: 0,
+            file,
+            place: index
+          });
+        }
       }
     }
     if (++cntr > 1e3) {

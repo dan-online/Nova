@@ -15,10 +15,6 @@ module.exports.run = function(line, file, ogLine, lineNumber) {
       },
       true
     );
-  let getVar = variables.find(v => v.key == getValue);
-  if (getVar) {
-    return console.log(getVar.value);
-  }
   try {
     let evaled = safeEval(getValue, variables);
     console.log(evaled);

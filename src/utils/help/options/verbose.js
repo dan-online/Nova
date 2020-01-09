@@ -5,5 +5,5 @@ module.exports.run = function(commands, cb) {
 module.exports.config = {
   name: "verbose",
   desc: "enable verbose logging for deeper insight",
-  aliases: ["--verbose", "-vl"]
+  aliases: ["--verbose", "-V"]
 };

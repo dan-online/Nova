@@ -1,14 +1,16 @@
-var variables = [
-  { key: "args", value: process.argv.slice(process.argv.indexOf("./test.ns")) },
-  { key: "platform", value: process.platform },
-  { key: "process", value: { pid: process.pid, exit: process.exit } },
-  { key: "Nova", value: { directory: process.cwd() } },
-  { key: "startTimer", value: setTimeout },
-  { key: "startInterval", value: setInterval },
-  { key: "stopTimer", value: clearTimeout },
-  { key: "stopInterval", value: clearInterval }
-];
-variables.push({ key: "global", value: variables });
+var variables = {
+  args: process.argv.slice(process.argv.indexOf("./test.ns")),
+  platform: process.platform,
+  process: { pid: process.pid, exit: process.exit },
+  Nova: { directory: process.cwd() },
+  startTimer: setTimeout,
+  startInterval: setInterval,
+  stopTimer: clearTimeout,
+  stopInterval: clearInterval,
+  include: require,
+  output: console
+};
+variables["global"] = variables;
 const { error, debug } = require("../../log/all");
 const safeEval = require("safe-eval");
 module.exports.run = function(line, file, ogLine, lineNumber) {
@@ -40,13 +42,9 @@ module.exports.run = function(line, file, ogLine, lineNumber) {
       true
     );
   try {
-    let evaled = safeEval(getValue, variables);
-    if (variables.find(v => v.key == key)) {
-      variables.splice(variables.indexOf(variables.find(v => v.key == key)), 1);
-    }
-    variables.push({ key, value: evaled });
+    let evaled = safeEval(value, variables);
+    variables[key] = evaled;
   } catch (err) {
-    console.log(err);
     error.runtime(
       err,
       { full: ogLine, index: 0, file, place: lineNumber },
