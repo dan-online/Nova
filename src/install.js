@@ -4,7 +4,8 @@ const downloadRelease = require("download-github-release");
 
 const user = "dan-online";
 const repo = "nova";
-const outputdir = path.resolve(require("os").tmpdir());
+const tmpdir = path.resolve(require("os").tmpdir());
+const outputdir = path.resolve(__dirname, "..", "lib");
 const leaveZipped = false;
 const platform =
   process.platform == "darwin"
@@ -21,11 +22,17 @@ function filterAsset(asset) {
   return asset.name.indexOf(platform) >= 0;
 }
 
-downloadRelease(user, repo, outputdir, filterRelease, filterAsset, leaveZipped)
+downloadRelease(user, repo, tmpdir, filterRelease, filterAsset, leaveZipped)
   .then(function() {
     try {
+      console.log(
+        "Moving from",
+        path.resolve(tmpdir, "nova-" + platform),
+        "to",
+        path.resolve(outputdir, "nova")
+      );
       fs.copyFileSync(
-        path.resolve(outputdir, "nova-" + platform),
+        path.resolve(tmpdir, "nova-" + platform),
         path.resolve(outputdir, "nova")
       );
     } catch (err) {
@@ -33,5 +40,5 @@ downloadRelease(user, repo, outputdir, filterRelease, filterAsset, leaveZipped)
     }
   })
   .catch(function(err) {
-    throw err;
+    throw new Error("Unable to download due to: " + err.message);
   });
