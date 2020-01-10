@@ -21,7 +21,7 @@
     "url": "https://github.com/dan-online/Nova.git"
   },
   "engines": {
-    "node": "^8"
+    "node": ">=8"
   },
   "license": "MIT",
   "devDependencies": {
