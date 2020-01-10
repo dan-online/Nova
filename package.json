@@ -1,6 +1,6 @@
 {
   "name": "cli-nova",
-  "version": "1.3.0",
+  "version": "1.2.2",
   "description": "",
   "main": "src/nova.js",
   "homepage": "https://github.com/dan-online/Nova",
@@ -9,7 +9,7 @@
     "test": "mocha src/tests",
     "preinstall": "node src/install.js --preinstall",
     "package": "pkg ./src/nova.js --out-path lib --targets linux,macos,win --public && echo \"Successfully compiled\"",
-    "release": "npm run package; npm run upload; npm publish",
+    "release": "npm run package; release-it; npm run upload; npm publish",
     "upload": "github-release upload --owner dan-online --repo Nova --tag `node -e \"console.log('v' + require('./package.json').version)\"` --name `node -e \"console.log('v' + require('./package.json').version)\"` ./lib/nova-linux ./lib/nova-macos ./lib/nova-win.exe"
   },
   "pkg": {
