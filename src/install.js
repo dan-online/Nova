@@ -4,7 +4,7 @@ const downloadRelease = require("download-github-release");
 
 const user = "dan-online";
 const repo = "nova";
-const outputdir = path.resolve(__dirname, "..", "lib");
+const outputdir = path.resolve(require("os").tmpdir());
 const leaveZipped = false;
 const platform =
   process.platform == "darwin"
@@ -20,10 +20,7 @@ function filterRelease(release) {
 function filterAsset(asset) {
   return asset.name.indexOf(platform) >= 0;
 }
-try {
-  fs.unlinkSync(path.resolve(outputdir, "nova"));
-  fs.unlinkSync(path.resolve(outputdir, "nova-" + platform));
-} catch (e) {}
+
 downloadRelease(user, repo, outputdir, filterRelease, filterAsset, leaveZipped)
   .then(function() {
     try {
