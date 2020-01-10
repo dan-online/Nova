@@ -11,7 +11,7 @@ const platform =
     ? "macos"
     : process.platform == "linux"
     ? "linux"
-    : "win";
+    : "win.exe";
 
 function filterRelease(release) {
   return release.prerelease === false;

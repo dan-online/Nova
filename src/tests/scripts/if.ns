@@ -1,1 +1,1 @@
-if true then log true else log false;
+if true then output.log(true) else output.log(false);
