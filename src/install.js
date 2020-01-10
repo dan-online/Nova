@@ -20,15 +20,20 @@ function filterRelease(release) {
 function filterAsset(asset) {
   return asset.name.indexOf(platform) >= 0;
 }
-fs.unlinkSync(path.resolve(outputdir, "nova"));
-fs.unlinkSync(path.resolve(outputdir, "nova-" + platform));
-
+try {
+  fs.unlinkSync(path.resolve(outputdir, "nova"));
+  fs.unlinkSync(path.resolve(outputdir, "nova-" + platform));
+} catch (e) {}
 downloadRelease(user, repo, outputdir, filterRelease, filterAsset, leaveZipped)
   .then(function() {
-    fs.copyFileSync(
-      path.resolve(outputdir, "nova-" + platform),
-      path.resolve(outputdir, "nova")
-    );
+    try {
+      fs.copyFileSync(
+        path.resolve(outputdir, "nova-" + platform),
+        path.resolve(outputdir, "nova")
+      );
+    } catch (err) {
+      throw new Error("Unable to copy file to new location");
+    }
   })
   .catch(function(err) {
     throw err;
