@@ -4,3 +4,7 @@ lib/nova-win.exe
 lib/nova-linux
 .DS_Store
 build
+.github
+.nvmrc
+test.ns
+support
