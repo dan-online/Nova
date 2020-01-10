@@ -43,7 +43,7 @@ function Run(filter = filterRelease, callback) {
 
 if (process.argv.find(a => a == "--preinstall"))
   Run(undefined, err => {
-    console.trace(err);
+    if (err) console.trace(err);
   });
 
 module.exports = Run;
