@@ -4,7 +4,7 @@ const downloadRelease = require("download-github-release");
 
 const user = "dan-online";
 const repo = "nova";
-const tmpdir = path.resolve(require("os").tmpdir());
+const tmpdir = fs.realpathSync(path.resolve(require("os").tmpdir()));
 const outputdir = path.resolve(__dirname, "..", "lib");
 const leaveZipped = false;
 const platform =
