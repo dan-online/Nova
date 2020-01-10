@@ -65,19 +65,19 @@ nova --verbose test.ns
 // We recommend setting swift for language highlighting
 
 set variable as "hello"; // "Strings"
-log variable; // Logging
+output.log(variable); // Logging
 
 set two as 1 + 1; // Numbers
 set array as [1,2,3,4,5];
 
 set chalk as include("chalk"); // Npm integration
-log chalk.red("Red text"); // Logs red
+output.log(chalk.red("Red text")); // Logs red
 
-log 12 / 2 % 2 + 1; // Logs 3
+output.log(12 / 2 % 2 + 1); // Logs 3
 
-if two equals 2 then log "two is equal to 2";
+if two equals 2 then output.log("two is equal to 2");
 
-if two isnot 2 then log "won't be logged" else log "two is not not equal to 2";
+if two isnot 2 then output.log("won't be logged") else output.log("two is not not equal to 2");
 
 ```
 
