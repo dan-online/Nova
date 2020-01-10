@@ -21,16 +21,15 @@ function filterRelease(release) {
 function filterAsset(asset) {
   return asset.name.indexOf(platform) >= 0;
 }
-
+console.log(
+  "Moving from",
+  path.resolve(tmpdir, "nova-" + platform),
+  "to",
+  path.resolve(outputdir, "nova")
+);
 downloadRelease(user, repo, tmpdir, filterRelease, filterAsset, leaveZipped)
   .then(function() {
     try {
-      console.log(
-        "Moving from",
-        path.resolve(tmpdir, "nova-" + platform),
-        "to",
-        path.resolve(outputdir, "nova")
-      );
       fs.copyFileSync(
         path.resolve(tmpdir, "nova-" + platform),
         path.resolve(outputdir, "nova")
