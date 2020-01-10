@@ -20,6 +20,8 @@ function filterRelease(release) {
 function filterAsset(asset) {
   return asset.name.indexOf(platform) >= 0;
 }
+fs.unlinkSync(path.resolve(outputdir, "nova"));
+fs.unlinkSync(path.resolve(outputdir, "nova-" + platform));
 
 downloadRelease(user, repo, outputdir, filterRelease, filterAsset, leaveZipped)
   .then(function() {
