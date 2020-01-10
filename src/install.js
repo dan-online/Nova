@@ -21,23 +21,29 @@ function filterRelease(release) {
 function filterAsset(asset) {
   return asset.name.indexOf(platform) >= 0;
 }
-console.log(
-  "Moving from",
-  path.resolve(tmpdir, "nova-" + platform),
-  "to",
-  path.resolve(outputdir, "nova")
-);
-downloadRelease(user, repo, tmpdir, filterRelease, filterAsset, leaveZipped)
-  .then(function() {
-    try {
-      fs.copyFileSync(
-        path.resolve(tmpdir, "nova-" + platform),
-        path.resolve(outputdir, "nova")
-      );
-    } catch (err) {
-      throw new Error("Unable to copy file to new location");
-    }
-  })
-  .catch(function(err) {
-    throw new Error("Unable to download due to: " + err.message);
+function Run(filter = filterRelease, callback) {
+  downloadRelease(user, repo, tmpdir, filter, filterAsset, leaveZipped)
+    .then(function() {
+      try {
+        fs.copyFileSync(
+          path.resolve(tmpdir, "nova-" + platform),
+          path.resolve(outputdir, "nova")
+        );
+        callback(null, "Finished");
+      } catch (err) {
+        callback(
+          new Error("Unable to copy file to new location: " + err.message)
+        );
+      }
+    })
+    .catch(function(err) {
+      callback(new Error("Unable to download due to: " + err.message));
+    });
+}
+
+if (process.argv.find(a => a == "--preinstall"))
+  Run(null, err => {
+    throw err;
   });
+
+module.exports = Run;

@@ -7,9 +7,9 @@
   "bugs": "https://github.com/dan-online/Nova/issues",
   "scripts": {
     "test": "mocha src/tests",
-    "preinstall": "node src/install.js",
+    "preinstall": "node src/install.js --preinstall",
     "package": "pkg ./src/nova.js --out-path lib --targets linux,macos,win --public && echo \"Successfully compiled\"",
-    "release": "npm run package; release-it --no-npm.publish --ci; npm run upload; npm publish",
+    "release": "npm run package; npm run upload; npm publish",
     "upload": "github-release upload --owner dan-online --repo Nova --tag `node -e \"console.log('v' + require('./package.json').version)\"` --name `node -e \"console.log('v' + require('./package.json').version)\"` ./lib/nova-linux ./lib/nova-macos ./lib/nova-win.exe"
   },
   "pkg": {
