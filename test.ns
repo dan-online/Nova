@@ -6,8 +6,3 @@ output.log(redText);
 
 set package as include(path.resolve("./package.json"));
 output.log("Running v" + package.version);
-
-set Spring as include("js-spring");
-set app as new Spring({name: "test"}).app;
-
-app.get("/", function(req, res) { res.send("hi"); });
