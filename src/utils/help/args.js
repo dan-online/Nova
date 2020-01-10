@@ -5,8 +5,7 @@ const options = [];
   require("./options/help"),
   require("./options/verbose"),
   require("./options/version"),
-  require("./options/eval"),
-  require("./options/update")
+  require("./options/eval")
 ].forEach(file => {
   options.push({
     run: file.run,
