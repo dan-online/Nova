@@ -39,7 +39,7 @@ module.exports = function(args, file, cb) {
     let index = -1;
     (function next() {
       index++;
-      if (!toRun[index]) return;
+      if (!toRun[index]) return cb();
       setImmediate(() => {
         toRun[index].run(next, args, options);
       });
