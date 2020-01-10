@@ -1,6 +1,6 @@
 {
   "name": "cli-nova",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "",
   "main": "src/nova.js",
   "homepage": "https://github.com/dan-online/Nova",
