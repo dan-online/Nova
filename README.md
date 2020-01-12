@@ -27,7 +27,6 @@
 - [Usage](#usage)
   - [Install](#install)
   - [Run](#run)
-  - [Keywords](#keywords)
   - [Documentation](#documentation)
 
 # About
@@ -88,7 +87,9 @@ if two isnot 2 then output.log("won't be logged") else output.log("two is not no
 
 ## Keywords
 
-### Variables
+## Documentation
+
+## Variables
 
 For variables we use two keywords, "set" and "as". All variable values are evaluated on initiation and stored in memory. They can be referenced at any time throughout the code and are global.
 
@@ -111,14 +112,14 @@ output.log("Running v" + package.version);
 
 ```
 
-## Documentation
-
 ## Global Variables
 
 ### Args
 
 Description: Args is defined as arguments passed in the command line when starting nova.
+
 Type: Array
+
 Example:
 
 ```bash
@@ -133,7 +134,9 @@ $ nova test.ns --test
 ### Platform
 
 Description: The platform the program is being run on, for example: linux, darwin and win32
+
 Type: String
+
 Example:
 
 ```bash
@@ -148,7 +151,9 @@ darwin
 ### Process
 
 Description: The process running containing information and functions to manipulate
+
 Type: Object
+
 Examples:
 
 ```bash
@@ -165,7 +170,9 @@ Process id is 12345
 ### Nova
 
 Description: File information and Nova information
+
 Type: Object
+
 Examples:
 
 ```bash
@@ -184,7 +191,9 @@ $ nova test.ns
 ### Tickers
 
 Description: Intervals and timers that allow you to run something every certain time or after a certain time
+
 Type: Function
+
 Examples:
 
 ```bash
@@ -204,7 +213,9 @@ I log every 5 seconds
 ### Include
 
 Description: Include is an alias of node require and allows users to import npm modules and seperate files.
+
 Type: Object
+
 Examples:
 
 ```bash
@@ -220,7 +231,9 @@ I am red text :)
 ### Output
 
 Description: Output is an alias of node console and lets you output to the console
+
 Type: Object
+
 Examples:
 
 ```bash
