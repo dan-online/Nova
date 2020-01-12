@@ -28,12 +28,17 @@
   - [Install](#install)
   - [Run](#run)
   - [Keywords](#keywords)
+  - [Documentation](#documentation)
 
 # About
 
-Nova is an opensource programming language built on node. The purpose of Nova is to make a pure psuedo-code language that is the perfect introduction into computer science. Completely built on [node](https://github.com/nodejs/node) v12 and connected to NPM packages, Nova is optimized for running on mac, linux and windows!
+Nova is an opensource programming language built on node. The purpose of Nova is to make a pure psuedo-code language that is the perfect introduction into computer science. Completely built on [node](https://github.com/nodejs/node) v12 and connected to npm packages, Nova is optimized for running on mac, linux and windows!
+
+I made this project to make a pseudocode based language that simplified computer science. Nova's main purpose is to make it easier for non-programmers to learn the basics of coding. Using words such as "set" and "as" and "equals" makes it easier to follow and understand what is happening.
 
 To get started go to [usage](#usage) and start your Nova journey today.
+
+To support me, [DanCodes](https://github.com/dan-online), you can donate to my [Patreon](https://patreon.com/mayorchano) or just give this project a star :)
 
 # Usage
 
@@ -87,14 +92,14 @@ if two isnot 2 then output.log("won't be logged") else output.log("two is not no
 
 For variables we use two keywords, "set" and "as". All variable values are evaluated on initiation and stored in memory. They can be referenced at any time throughout the code and are global.
 
-```javascript
+```swift
 set hello as "world1";
 output.log("hello " + hello.slice(0, -1)); // output: hello world
 ```
 
 Variables can also be set to npm modules and other files. Modules can be installed using [npm](https://npmjs.org).
 
-```javascript
+```swift
 set chalk as include("chalk");
 set path as include("path");
 set redText as chalk.red("red text");
@@ -105,6 +110,100 @@ set package as include(path.resolve("./package.json"));
 output.log("Running v" + package.version);
 
 ```
+
+## Documentation
+
+## Global Variables
+
+### Args
+
+Description: Args is defined as arguments passed in the command line when starting nova.
+Type: Array
+Example:
+
+```bash
+// test.ns
+output.log(args);
+
+// Command line
+$ nova test.ns --test
+['--test']
+```
+
+### Platform
+
+Description: The platform the program is being run on, for example: linux, darwin and win32
+Type: String
+Example:
+
+```bash
+// test.ns
+output.log(platform);
+
+// Command line on macbook
+$ nova test.ns
+darwin
+```
+
+### Process
+
+Description: The process running containing information and functions to manipulate
+Type: Object
+Examples:
+
+```bash
+// test.ns
+set exitCode as 0;
+output.log("Process id is " + process.pid);
+process.exit(exitCode);
+
+// Command line
+$ nova test.ns
+Process id is 12345
+```
+
+### Nova
+
+Description: File information and Nova information
+Type: Object
+Examples:
+
+```bash
+// test.ns
+output.log(Nova);
+
+// Command line
+$ nova test.ns
+{
+  directory: '/files',
+  node: 'vX',
+  version: 'vX',
+}
+```
+
+### Tickers
+
+```bash
+// test.ns
+set timer as startTimer(() => { output.log("After one second, I have logged") }, 1000);
+set interval as startInterval(() => { output.log("I log every 5 seconds") }, 5000);
+
+startTimer(() => { stopTimer(timer); stopInterval(interval); }, 11000);
+
+// Command line
+$ nova test.ns
+After one second, I have logged
+I log every 5 seconds
+I log every 5 seconds
+```
+
+startTimer: setTimeout,
+startInterval: setInterval,
+stopTimer: clearTimeout,
+stopInterval: clearInterval,
+include: require,
+output: console
+}
 
 ## Author
 
@@ -133,3 +232,7 @@ This project is [MIT](LICENSE.md) licensed.
 ---
 
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
+
+```
+
+```

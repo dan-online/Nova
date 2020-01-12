@@ -1,8 +1,14 @@
 var variables = {
-  args: process.argv.slice(process.argv.indexOf("./test.ns")),
+  args: process.argv.slice(
+    process.argv.indexOf(process.argv.find(x => x.endsWith(".ns")))
+  ),
   platform: process.platform,
   process: { pid: process.pid, exit: process.exit },
-  Nova: { directory: process.cwd() },
+  Nova: {
+    directory: process.cwd(),
+    node: process.version,
+    version: require("../../../../package.json").version
+  },
   startTimer: setTimeout,
   startInterval: setInterval,
   stopTimer: clearTimeout,

@@ -1,8 +1,4 @@
-set chalk as include("chalk");
-set path as include("path");
-set redText as chalk.red("red text");
+set timer as startTimer(() => { output.log("After one second, I have logged") }, 1000);
+set interval as startInterval(() => { output.log("I log every 5 seconds") }, 5000);
 
-output.log(redText);
-
-set package as include(path.resolve("./package.json"));
-output.log("Running v" + package.version);
+startTimer(() => { stopTimer(timer); stopInterval(interval); }, 11000);
