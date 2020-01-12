@@ -183,6 +183,10 @@ $ nova test.ns
 
 ### Tickers
 
+Description: Intervals and timers that allow you to run something every certain time or after a certain time
+Type: Function
+Examples:
+
 ```bash
 // test.ns
 set timer as startTimer(() => { output.log("After one second, I have logged") }, 1000);
@@ -198,6 +202,39 @@ I log every 5 seconds
 ```
 
 ### Include
+
+Description: Include is an alias of node require and allows users to import npm modules and seperate files.
+Type: Object
+Examples:
+
+```bash
+// test.ns
+set chalk as include("chalk");
+output.log(chalk.red("I am red text :)"));
+
+// Command line
+$ nova test.ns
+I am red text :)
+```
+
+### Output
+
+Description: Output is an alias of node console and lets you output to the console
+Type: Object
+Examples:
+
+```bash
+// test.ns
+output.clear(); // This clears the output
+output.log("This is regular log");
+output.error("This is an error");
+output.info("This is some info");
+
+// Command line
+This is regular log
+This is an error
+This is some info
+```
 
 ## Author
 
