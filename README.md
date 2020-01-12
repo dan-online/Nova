@@ -35,11 +35,13 @@ Nova is an opensource programming language built on node. The purpose of Nova is
 
 I made this project to make a pseudocode based language that simplified computer science. Nova's main purpose is to make it easier for non-programmers to learn the basics of coding. Using words such as "set" and "as" and "equals" makes it easier to follow and understand what is happening.
 
-To get started go to [usage](#usage) and start your Nova journey today.
+To get started go to [usage](#usage) and start your Nova journey today. 
 
 To support me, [DanCodes](https://github.com/dan-online), you can donate to my [Patreon](https://patreon.com/mayorchano) or just give this project a star :)
 
 # Usage
+
+To use nova you can either evaluate with the "-e/--eval" option in the command line or make a novascript. A novascript is file ending in ``.ns`` and is made for nova. These files can be ran by the nova-cli.
 
 ## Install
 
