@@ -46,23 +46,27 @@ To use nova you can either evaluate with the "-e/--eval" option in the command l
 ## Install
 
 ```bash
-npm i -g cli-nova
+$ npm i -g cli-nova
 ```
 
 ## Run
 
 ```bash
-nova [options] [file]
+$ nova [options] [file]
 ```
 
 ## Example runs
 
 ```bash
-nova test.ns
+$ nova test.ns
 ```
 
 ```bash
-nova --verbose test.ns
+$ nova --verbose test.ns
+```
+
+```bash
+$ nova -e "output.log('HI!');"
 ```
 
 ## Examples
