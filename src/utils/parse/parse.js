@@ -23,7 +23,7 @@ module.exports = function(fileData, file, cb) {
     line = line.split(/\/\/.*|\/\*[^]*\*\//g).join("");
     index++;
     if (line != "" && line != " " && line.split(" ").length > 0) {
-      if (!line.endsWith(";")) {
+      if (!line.endsWith(";") && !line.endsWith("; ")) {
         debug()("broken line:", line);
         return error.runtime(
           new Error("Unexpected end of line, semi-colon expected"),
