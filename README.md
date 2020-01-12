@@ -197,13 +197,7 @@ I log every 5 seconds
 I log every 5 seconds
 ```
 
-startTimer: setTimeout,
-startInterval: setInterval,
-stopTimer: clearTimeout,
-stopInterval: clearInterval,
-include: require,
-output: console
-}
+### Include
 
 ## Author
 
