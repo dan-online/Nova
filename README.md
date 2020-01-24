@@ -41,7 +41,7 @@ To support me, [DanCodes](https://github.com/dan-online), you can donate to my [
 
 # Usage
 
-To use nova you can either evaluate with the "-e/--eval" option in the command line or make a novascript. A novascript is file ending in ``.ns`` and is made for nova. These files can be ran by the nova-cli.
+To use nova you can either evaluate with the "-e/--eval" option in the command line or make a novascript. A novascript is a file ending in ``.ns`` and is made for nova. These files can be ran by the nova-cli.
 
 ## Install
 
