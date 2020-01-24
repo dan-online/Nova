@@ -91,9 +91,7 @@ if two isnot 2 then output.log("won't be logged") else output.log("two is not no
 
 ```
 
-## Keywords
-
-## Documentation
+# Documentation
 
 ## Variables
 
